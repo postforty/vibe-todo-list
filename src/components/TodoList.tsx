@@ -28,18 +28,18 @@ export default function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
   return (
     <div className="w-full max-w-2xl mx-auto">
       {/* Filter Tabs */}
-      <div className="flex gap-4 mb-6 px-2">
-        {(['all', 'active', 'completed'] as const).map((f) => (
-          <button
-            key={f}
-            onClick={() => setFilter(f)}
-            className={`text-sm font-medium transition-all ${
-              filter === f ? 'text-accent border-b-2 border-accent pb-1' : 'text-text-muted hover:text-text-main'
-            }`}
-          >
-            {f.toUpperCase()}
-          </button>
-        ))}
+      <div className="flex justify-center mb-10">
+        <div className="segment-container">
+          {(['all', 'active', 'completed'] as const).map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className={`segment-item ${filter === f ? 'active' : ''}`}
+            >
+              {f.charAt(0).toUpperCase() + f.slice(1)}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="flex flex-col">
